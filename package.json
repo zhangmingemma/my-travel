@@ -1,0 +1,22 @@
+{
+  "name": "my-travel",
+  "version": "1.0.0",
+  "description": "''",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "node ./node_modules/typescript/lib/tsc.js -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangmingemma/my-travel.git"
+  },
+  "author": "gemma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhangmingemma/my-travel/issues"
+  },
+  "homepage": "https://github.com/zhangmingemma/my-travel#readme",
+  "dependencies": {
+    "typescript": "^4.1.2"
+  }
+}
