@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var miniprogram_api_promise_1 = require("miniprogram-api-promise");
+var wxp = {};
+miniprogram_api_promise_1.promisifyAll(wx, wxp);
+exports.default = wxp;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJvbWlzaWZ5V3guanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJwcm9taXNpZnlXeC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLG1FQUEyRDtBQUUzRCxJQUFNLEdBQUcsR0FBRyxFQUFTLENBQUE7QUFFckIsc0NBQVksQ0FBQyxFQUFFLEVBQUUsR0FBRyxDQUFDLENBQUE7QUFFckIsa0JBQWUsR0FBRyxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcHJvbWlzaWZ5QWxsLCBXeHAgfSBmcm9tICdtaW5pcHJvZ3JhbS1hcGktcHJvbWlzZSdcblxuY29uc3Qgd3hwID0ge30gYXMgV3hwXG4vLyBwcm9taXNpZnkgYWxsIHd4J3MgYXBpXG5wcm9taXNpZnlBbGwod3gsIHd4cClcblxuZXhwb3J0IGRlZmF1bHQgd3hwIl19

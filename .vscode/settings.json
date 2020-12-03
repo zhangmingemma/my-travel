@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "*.wxml": "html",
+        "*.wxss": "css"
+    },
+    "less.compile": {
+        "compress": true,
+        "sourceMap": false,
+        "outExt": ".wxss"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": false,
+        "source.fixAll.eslint": false
+    }
+}

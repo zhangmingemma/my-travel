@@ -2,8 +2,8 @@
   "name": "my-travel",
   "version": "1.0.0",
   "description": "''",
-  "main": "index.js",
   "scripts": {
+    "compile": "./node_modules/typescript/bin/tsc",
     "tsc": "node ./node_modules/typescript/lib/tsc.js -w"
   },
   "repository": {
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zhangmingemma/my-travel#readme",
   "dependencies": {
+    "miniprogram-api-typings": "^3.2.0",
     "typescript": "^4.1.2"
   }
 }

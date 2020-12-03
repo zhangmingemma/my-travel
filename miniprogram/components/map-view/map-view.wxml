@@ -1,0 +1,3 @@
+<view class="wrap">
+    <ec-canvas id="my-chart" canvas-id="my-chart" ec="{{ec}}"></ec-canvas>
+</view>

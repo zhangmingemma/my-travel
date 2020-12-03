@@ -1,0 +1,43 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var genOption_1 = require("./genOption");
+var data_1 = require("./data");
+var echarts = require('./ec-canvas/echarts');
+Component({
+    properties: {},
+    data: {
+        ec: {},
+        option: {},
+    },
+    attached: function () {
+        this.setData({
+            ec: {
+                onInit: this.initChart()
+            }
+        });
+    },
+    detached: function () {
+    },
+    methods: {
+        initChart: function () {
+            var _this = this;
+            var init = function (canvas, width, height, dpr) {
+                var chart = echarts.init(canvas, null, {
+                    width: width,
+                    height: height,
+                    devicePixelRatio: dpr,
+                    renderer: 'canvas'
+                });
+                _this.data.option = genOption_1.genOption();
+                canvas.setChart(chart);
+                echarts.registerMap('china', data_1.china);
+                chart.setOption(_this.data.option);
+                return chart;
+            };
+            return init;
+        },
+        genOption: function () {
+        }
+    },
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFwLXZpZXcuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJtYXAtdmlldy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLHlDQUF1QztBQUN2QywrQkFBOEI7QUFDOUIsSUFBTSxPQUFPLEdBQUcsT0FBTyxDQUFDLHFCQUFxQixDQUFDLENBQUE7QUFFOUMsU0FBUyxDQUFDO0lBQ04sVUFBVSxFQUFFLEVBRVg7SUFDRCxJQUFJLEVBQUU7UUFDRixFQUFFLEVBQUUsRUFBRTtRQUNOLE1BQU0sRUFBRSxFQUFFO0tBQ2I7SUFDRCxRQUFRO1FBQ0osSUFBSSxDQUFDLE9BQU8sQ0FBQztZQUNULEVBQUUsRUFBRTtnQkFDQSxNQUFNLEVBQUUsSUFBSSxDQUFDLFNBQVMsRUFBRTthQUMzQjtTQUNKLENBQUMsQ0FBQTtJQUNOLENBQUM7SUFDRCxRQUFRO0lBQ1IsQ0FBQztJQUNELE9BQU8sRUFBRTtRQUNMLFNBQVMsRUFBVDtZQUFBLGlCQWVDO1lBZEcsSUFBTSxJQUFJLEdBQUcsVUFBQyxNQUFVLEVBQUUsS0FBWSxFQUFFLE1BQWEsRUFBRSxHQUFVO2dCQUM3RCxJQUFNLEtBQUssR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLE1BQU0sRUFBRSxJQUFJLEVBQUU7b0JBQ3JDLEtBQUssRUFBRSxLQUFLO29CQUNaLE1BQU0sRUFBRSxNQUFNO29CQUNkLGdCQUFnQixFQUFFLEdBQUc7b0JBQ3JCLFFBQVEsRUFBRSxRQUFRO2lCQUNyQixDQUFDLENBQUM7Z0JBQ0gsS0FBSSxDQUFDLElBQUksQ0FBQyxNQUFNLEdBQUcscUJBQVMsRUFBRSxDQUFBO2dCQUM5QixNQUFNLENBQUMsUUFBUSxDQUFDLEtBQUssQ0FBQyxDQUFBO2dCQUN0QixPQUFPLENBQUMsV0FBVyxDQUFDLE9BQU8sRUFBRSxZQUFLLENBQUMsQ0FBQTtnQkFDbkMsS0FBSyxDQUFDLFNBQVMsQ0FBQyxLQUFJLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxDQUFBO2dCQUNqQyxPQUFPLEtBQUssQ0FBQTtZQUNoQixDQUFDLENBQUE7WUFDRCxPQUFPLElBQUksQ0FBQTtRQUNmLENBQUM7UUFDRCxTQUFTO1FBRVQsQ0FBQztLQUNKO0NBQ0osQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgZ2VuT3B0aW9uIH0gZnJvbSAnLi9nZW5PcHRpb24nXG5pbXBvcnQgeyBjaGluYSB9IGZyb20gJy4vZGF0YSdcbmNvbnN0IGVjaGFydHMgPSByZXF1aXJlKCcuL2VjLWNhbnZhcy9lY2hhcnRzJylcblxuQ29tcG9uZW50KHtcbiAgICBwcm9wZXJ0aWVzOiB7XG4gICAgICAgIFxuICAgIH0sXG4gICAgZGF0YToge1xuICAgICAgICBlYzoge30sXG4gICAgICAgIG9wdGlvbjoge30sIFxuICAgIH0sXG4gICAgYXR0YWNoZWQoKSB7XG4gICAgICAgIHRoaXMuc2V0RGF0YSh7XG4gICAgICAgICAgICBlYzoge1xuICAgICAgICAgICAgICAgIG9uSW5pdDogdGhpcy5pbml0Q2hhcnQoKVxuICAgICAgICAgICAgfVxuICAgICAgICB9KVxuICAgIH0sXG4gICAgZGV0YWNoZWQoKSB7XG4gICAgfSxcbiAgICBtZXRob2RzOiB7XG4gICAgICAgIGluaXRDaGFydCgpIHtcbiAgICAgICAgICAgIGNvbnN0IGluaXQgPSAoY2FudmFzOmFueSwgd2lkdGg6bnVtYmVyLCBoZWlnaHQ6bnVtYmVyLCBkcHI6bnVtYmVyKSA9PiB7XG4gICAgICAgICAgICAgICAgY29uc3QgY2hhcnQgPSBlY2hhcnRzLmluaXQoY2FudmFzLCBudWxsLCB7XG4gICAgICAgICAgICAgICAgICAgIHdpZHRoOiB3aWR0aCxcbiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0OiBoZWlnaHQsXG4gICAgICAgICAgICAgICAgICAgIGRldmljZVBpeGVsUmF0aW86IGRwcixcbiAgICAgICAgICAgICAgICAgICAgcmVuZGVyZXI6ICdjYW52YXMnXG4gICAgICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICAgICAgdGhpcy5kYXRhLm9wdGlvbiA9IGdlbk9wdGlvbigpXG4gICAgICAgICAgICAgICAgY2FudmFzLnNldENoYXJ0KGNoYXJ0KVxuICAgICAgICAgICAgICAgIGVjaGFydHMucmVnaXN0ZXJNYXAoJ2NoaW5hJywgY2hpbmEpXG4gICAgICAgICAgICAgICAgY2hhcnQuc2V0T3B0aW9uKHRoaXMuZGF0YS5vcHRpb24pXG4gICAgICAgICAgICAgICAgcmV0dXJuIGNoYXJ0XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICByZXR1cm4gaW5pdFxuICAgICAgICB9LFxuICAgICAgICBnZW5PcHRpb24oKSB7XG4gICAgICAgICAgICBcbiAgICAgICAgfVxuICAgIH0sXG59KTtcbiJdfQ==

@@ -34,11 +34,12 @@
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
-  "appid": "wxa2288e2299b9ffbf",
+  "appid": "wx9223982a0aebd19f",
   "projectname": "my-travel",
-  "libVersion": "2.8.1",
+  "libVersion": "2.13.0",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "list": []
