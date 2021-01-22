@@ -1,4 +1,5 @@
 
 export default {
-    userInfo: {}
+    version: '',
+    userInfo: {},
 }

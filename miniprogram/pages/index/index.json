@@ -1,6 +1,6 @@
 {
     "usingComponents": {
-        "map-view": "../../components/map-view/map-view"
+        "map-view": "../../widgets/map-view/map-view"
     },
     "backgroundColor": "#2E3134"
 }

@@ -1,5 +1,5 @@
 import { genOption } from './genOption'
-import { china } from './data'
+// import { china } from './data'
 const echarts = require('./ec-canvas/echarts')
 
 Component({
@@ -11,11 +11,11 @@ Component({
         option: {}, 
     },
     attached() {
-        this.setData({
-            ec: {
-                onInit: this.initChart()
-            }
-        })
+        // this.setData({
+        //     ec: {
+        //         onInit: this.initChart()
+        //     }
+        // })
     },
     detached() {
     },
