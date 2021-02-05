@@ -1,1 +1,1 @@
-.map{padding:16px}.map .map_wrap{width:calc(100vw - 32px);height:calc(100vw - 32px)}
+page{position:relative}

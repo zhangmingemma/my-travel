@@ -39,7 +39,7 @@ module.exports = {
         }
     },
 
-    emit (event:string, data:object) {
+    emit (event:string, data:any) {
         console.info('eventcenter emit: ', event, data)
         if (!event || !(event in this._register)) {
             return 

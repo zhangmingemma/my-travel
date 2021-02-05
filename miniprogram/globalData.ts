@@ -1,5 +1,5 @@
 
 export default {
     version: '',
-    userInfo: {},
+    userInfo: {} as IUserInfo,
 }
