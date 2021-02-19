@@ -3,11 +3,11 @@
     "pages/index/index"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#2E3134",
+    "navigationBarBackgroundColor": "#000000",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#2E3134",
-    "backgroundColorTop": "#2E3134",
-    "backgroundColorBottom": "#2E3134"
+    "backgroundColor": "#000000",
+    "backgroundColorTop": "#000000",
+    "backgroundColorBottom": "#000000"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

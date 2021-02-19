@@ -13,3 +13,6 @@ $RECYCLE.BIN/
 # Node.js
 node_modules/
 miniprogram/miniprogram_npm/
+cloudfunctions/login/node_modules
+cloudfunctions/openapi/node_modules
+cloudfunctions/geodata/node_modules

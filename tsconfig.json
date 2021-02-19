@@ -25,7 +25,7 @@
     },
     "include": [
       "./**/*.ts"
-    ],
+, "cloudfunctions/login/index.js"    ],
     "exclude": [
       "node_modules"
     ]

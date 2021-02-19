@@ -5,7 +5,4 @@ declare interface IOptions<T> {
     data: T
 }
 
-declare interface IUserInfo {
-    openid: string,
-}
 

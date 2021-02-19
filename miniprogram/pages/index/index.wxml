@@ -1,20 +1,22 @@
-<block wx:if="{{!userInfo}}">
-    <button class="uploader-text" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo"></button>
-</block>
-
-<block wx:else>
+<block wx:if="{{ready}}">
     <view class="user">
         <view class="user_image">
-            <image class="" src="" mode="aspectFill" lazy-load="false"/>
+            <image class="user_image_icon" src="{{userInfo.avatarUrl || '/assets/user.png'}}" mode="aspectFill" lazy-load="false"/>
         </view>
-        <view class="user_name">{{}}</view>
+        <view wx:if="{{showAuthorize}}" class="user_info">
+            <button class="user_info_setting" open-type="getUserInfo" bindgetuserinfo="getUserAuthorize">
+                <svg class="icon" size="20" type="add"></svg>
+                <view class="text">点击设置个人信息</view>
+            </button>
+        </view>
+        <view wx:else class="user_info">
+            <view class="name">{{userInfo.nickName}}</view>
+        </view>
+    </view>
+
+    <view class="map">
+        <map-view></map-view>
     </view>
 </block>
-
-
-
-<view class="map_wrap">
-    <map-view></map-view>
-</view>
-
+    
   
