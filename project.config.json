@@ -38,7 +38,7 @@
   },
   "appid": "wx9223982a0aebd19f",
   "projectname": "my-travel",
-  "libVersion": "2.14.4",
+  "libVersion": "2.16.0",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",

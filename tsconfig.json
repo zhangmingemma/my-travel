@@ -1,33 +1,31 @@
 {
     "compilerOptions": {
-      "strictNullChecks": true,
-      "noImplicitAny": true,
-      "module": "CommonJS",
-      "target": "ES5",
-      "allowJs": false,
-      "experimentalDecorators": true,
-      "noImplicitThis": true,
-      "noImplicitReturns": true,
-      "alwaysStrict": true,
-      "inlineSourceMap": true,
-      "inlineSources": true,
-      "noFallthroughCasesInSwitch": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "strict": true,
-      "removeComments": true,
-      "pretty": true,
-      "strictPropertyInitialization": true,
-      "lib": ["es6"],
-      "typeRoots": [
-        "./typings"
-      ]
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "module": "CommonJS",
+        "target": "ES5",
+        "allowJs": false,
+        "experimentalDecorators": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "alwaysStrict": true,
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+        "removeComments": true,
+        "pretty": true,
+        "strictPropertyInitialization": true,
+        "lib": ["es6"],
+        "typeRoots": [
+            "./node_modules/miniprogram-api-typings",
+            "./typings"
+        ]
     },
-    "include": [
-      "./**/*.ts"
-, "cloudfunctions/login/index.js"    ],
     "exclude": [
-      "node_modules"
+        "node_modules", "cloudfunctions/geodata/index.js"
     ]
-  }
+}
   

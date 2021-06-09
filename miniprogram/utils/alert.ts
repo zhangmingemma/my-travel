@@ -1,4 +1,4 @@
-export const showModal = (opts: WechatMiniprogram.ShowModalOption) => {
+export const showModal = (opts: WechatMiniprogram.ShowModalOption={content: '数据加载错误，请稍后再试', showCancel: false}) => {
     wx.showModal(opts)
 }
 

@@ -35,99 +35,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var globalData_1 = require("../../globalData");
-var openDataModel_1 = require("../../models/openDataModel");
-var alert_1 = require("../../utils/alert");
 Page({
-    cloudID: '',
-    data: {
-        userInfo: null,
-        showAuthorize: false,
-        ready: false
-    },
+    data: {},
     onLoad: function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, this.initUserInfo()];
-                    case 1:
-                        _a.sent();
-                        return [4, this.initLocation()];
-                    case 2:
-                        _a.sent();
-                        return [2];
-                }
-            });
-        });
-    },
-    initUserInfo: function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var authorize, res;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, openDataModel_1.getAuthorize('scope.userInfo')];
-                    case 1:
-                        authorize = _a.sent();
-                        this.setData({
-                            showAuthorize: !authorize,
-                            ready: !authorize
-                        });
-                        if (!authorize) return [3, 4];
-                        return [4, openDataModel_1.getUserCloudID()];
-                    case 2:
-                        res = _a.sent();
-                        this.cloudID = res.cloudID || '';
-                        return [4, this.onGetUserInfo()];
-                    case 3:
-                        _a.sent();
-                        _a.label = 4;
-                    case 4: return [2];
-                }
-            });
-        });
-    },
-    getUserAuthorize: function (e) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        this.cloudID = e.detail.cloudID;
-                        alert_1.showLoading();
-                        return [4, this.onGetUserInfo()];
-                    case 1:
-                        _a.sent();
-                        return [2];
-                }
-            });
-        });
-    },
-    onGetUserInfo: function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var res;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, openDataModel_1.getUserInfo(this.cloudID)];
-                    case 1:
-                        res = _a.sent();
-                        globalData_1.default.userInfo = res.data;
-                        this.setData({
-                            userInfo: globalData_1.default.userInfo,
-                            showAuthorize: false,
-                            ready: true
-                        });
-                        alert_1.hideLoading();
-                        return [2];
-                }
-            });
-        });
-    },
-    initLocation: function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2];
             });
         });
-    }
+    },
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLCtDQUEwQztBQUMxQyw0REFBc0Y7QUFDdEYsMkNBQTZEO0FBRTdELElBQUksQ0FBQztJQUNELE9BQU8sRUFBRSxFQUFFO0lBQ1gsSUFBSSxFQUFFO1FBQ0YsUUFBUSxFQUFFLElBQTBCO1FBQ3BDLGFBQWEsRUFBRSxLQUFLO1FBQ3BCLEtBQUssRUFBRSxLQUFLO0tBQ2Y7SUFFSyxNQUFNOzs7OzRCQUNSLFdBQU0sSUFBSSxDQUFDLFlBQVksRUFBRSxFQUFBOzt3QkFBekIsU0FBeUIsQ0FBQTt3QkFDekIsV0FBTSxJQUFJLENBQUMsWUFBWSxFQUFFLEVBQUE7O3dCQUF6QixTQUF5QixDQUFBOzs7OztLQUM1QjtJQUVLLFlBQVksRUFBbEI7Ozs7OzRCQUNzQixXQUFNLDRCQUFZLENBQUMsZ0JBQWdCLENBQUMsRUFBQTs7d0JBQWhELFNBQVMsR0FBRyxTQUFvQzt3QkFDdEQsSUFBSSxDQUFDLE9BQU8sQ0FBQzs0QkFDVCxhQUFhLEVBQUUsQ0FBQyxTQUFTOzRCQUN6QixLQUFLLEVBQUUsQ0FBQyxTQUFTO3lCQUNwQixDQUFDLENBQUE7NkJBQ0UsU0FBUyxFQUFULGNBQVM7d0JBQ08sV0FBTSw4QkFBYyxFQUFFLEVBQUE7O3dCQUFoQyxHQUFHLEdBQU8sU0FBc0I7d0JBQ3RDLElBQUksQ0FBQyxPQUFPLEdBQUcsR0FBRyxDQUFDLE9BQU8sSUFBSSxFQUFFLENBQUE7d0JBQ2hDLFdBQU0sSUFBSSxDQUFDLGFBQWEsRUFBRSxFQUFBOzt3QkFBMUIsU0FBMEIsQ0FBQTs7Ozs7O0tBRWpDO0lBRUssZ0JBQWdCLEVBQXRCLFVBQXVCLENBQUs7Ozs7O3dCQUN4QixJQUFJLENBQUMsT0FBTyxHQUFHLENBQUMsQ0FBQyxNQUFNLENBQUMsT0FBTyxDQUFBO3dCQUMvQixtQkFBVyxFQUFFLENBQUE7d0JBQ2IsV0FBTSxJQUFJLENBQUMsYUFBYSxFQUFFLEVBQUE7O3dCQUExQixTQUEwQixDQUFBOzs7OztLQUM3QjtJQUVLLGFBQWE7Ozs7OzRCQUNILFdBQU0sMkJBQVcsQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLEVBQUE7O3dCQUFyQyxHQUFHLEdBQUcsU0FBK0I7d0JBQzNDLG9CQUFVLENBQUMsUUFBUSxHQUFHLEdBQUcsQ0FBQyxJQUFJLENBQUE7d0JBQzlCLElBQUksQ0FBQyxPQUFPLENBQUM7NEJBQ1QsUUFBUSxFQUFFLG9CQUFVLENBQUMsUUFBUTs0QkFDN0IsYUFBYSxFQUFFLEtBQUs7NEJBQ3BCLEtBQUssRUFBRSxJQUFJO3lCQUNkLENBQUMsQ0FBQTt3QkFDRixtQkFBVyxFQUFFLENBQUE7Ozs7O0tBQ2hCO0lBRUssWUFBWTs7Ozs7O0tBRWpCO0NBQ0osQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGdsb2JhbERhdGEgZnJvbSBcIi4uLy4uL2dsb2JhbERhdGFcIjtcbmltcG9ydCB7IGdldEF1dGhvcml6ZSwgZ2V0VXNlckNsb3VkSUQsIGdldFVzZXJJbmZvIH0gZnJvbSBcIi4uLy4uL21vZGVscy9vcGVuRGF0YU1vZGVsXCJcbmltcG9ydCB7IGhpZGVMb2FkaW5nLCBzaG93TG9hZGluZyB9IGZyb20gXCIuLi8uLi91dGlscy9hbGVydFwiO1xuXG5QYWdlKHtcbiAgICBjbG91ZElEOiAnJyxcbiAgICBkYXRhOiB7XG4gICAgICAgIHVzZXJJbmZvOiBudWxsIGFzIChJVXNlckluZm8gfCBudWxsKSxcbiAgICAgICAgc2hvd0F1dGhvcml6ZTogZmFsc2UsXG4gICAgICAgIHJlYWR5OiBmYWxzZVxuICAgIH0sXG5cbiAgICBhc3luYyBvbkxvYWQoKSB7XG4gICAgICAgIGF3YWl0IHRoaXMuaW5pdFVzZXJJbmZvKClcbiAgICAgICAgYXdhaXQgdGhpcy5pbml0TG9jYXRpb24oKVxuICAgIH0sXG5cbiAgICBhc3luYyBpbml0VXNlckluZm8oKSB7XG4gICAgICAgIGNvbnN0IGF1dGhvcml6ZSA9IGF3YWl0IGdldEF1dGhvcml6ZSgnc2NvcGUudXNlckluZm8nKVxuICAgICAgICB0aGlzLnNldERhdGEoe1xuICAgICAgICAgICAgc2hvd0F1dGhvcml6ZTogIWF1dGhvcml6ZSxcbiAgICAgICAgICAgIHJlYWR5OiAhYXV0aG9yaXplXG4gICAgICAgIH0pXG4gICAgICAgIGlmIChhdXRob3JpemUpIHtcbiAgICAgICAgICAgIGNvbnN0IHJlczphbnkgPSBhd2FpdCBnZXRVc2VyQ2xvdWRJRCgpXG4gICAgICAgICAgICB0aGlzLmNsb3VkSUQgPSByZXMuY2xvdWRJRCB8fCAnJ1xuICAgICAgICAgICAgYXdhaXQgdGhpcy5vbkdldFVzZXJJbmZvKClcbiAgICAgICAgfVxuICAgIH0sXG5cbiAgICBhc3luYyBnZXRVc2VyQXV0aG9yaXplKGU6YW55KSB7XG4gICAgICAgIHRoaXMuY2xvdWRJRCA9IGUuZGV0YWlsLmNsb3VkSURcbiAgICAgICAgc2hvd0xvYWRpbmcoKVxuICAgICAgICBhd2FpdCB0aGlzLm9uR2V0VXNlckluZm8oKVxuICAgIH0sXG5cbiAgICBhc3luYyBvbkdldFVzZXJJbmZvKCkge1xuICAgICAgICBjb25zdCByZXMgPSBhd2FpdCBnZXRVc2VySW5mbyh0aGlzLmNsb3VkSUQpXG4gICAgICAgIGdsb2JhbERhdGEudXNlckluZm8gPSByZXMuZGF0YVxuICAgICAgICB0aGlzLnNldERhdGEoe1xuICAgICAgICAgICAgdXNlckluZm86IGdsb2JhbERhdGEudXNlckluZm8sXG4gICAgICAgICAgICBzaG93QXV0aG9yaXplOiBmYWxzZSxcbiAgICAgICAgICAgIHJlYWR5OiB0cnVlXG4gICAgICAgIH0pXG4gICAgICAgIGhpZGVMb2FkaW5nKClcbiAgICB9LFxuXG4gICAgYXN5bmMgaW5pdExvY2F0aW9uKCkge1xuICAgICAgICBcbiAgICB9XG59KTtcbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQ0EsSUFBSSxDQUFDO0lBRUQsSUFBSSxFQUFFLEVBRUw7SUFFSyxNQUFNOzs7Ozs7S0FFWDtDQUNKLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIlxuUGFnZSh7XG4gICAgXG4gICAgZGF0YToge1xuICAgICAgICBcbiAgICB9LFxuXG4gICAgYXN5bmMgb25Mb2FkKCkge1xuICAgICAgICBcbiAgICB9LFxufSk7XG4iXX0=

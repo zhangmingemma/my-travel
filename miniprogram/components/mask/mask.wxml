@@ -1,6 +1,0 @@
-<view class="mask" wx:if="{{condIf}}" catchtouchmove="preventPageScroll">
-    <view class="mask_bg {{condShow ? 'show' : ''}}" catchtouchstart="touchMask"></view>
-    <view class="mask_content {{animateType}} {{condShow ? 'show' : ''}}">
-        <slot></slot>
-    </view>
-</view>

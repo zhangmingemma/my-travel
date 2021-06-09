@@ -9,7 +9,7 @@ export const genSeries = (data: any) => {
     return [{
         type: 'map',
         mapType: 'china',
-        roam: true,
+        roam: false,
         left: 0,
         right: 0,
         top: 0,

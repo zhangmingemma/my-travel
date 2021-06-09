@@ -1,7 +1,6 @@
 {
     "usingComponents": {
-        "map-view": "../../components/map-view/map-view",
-        "svg": "../../components/svg/svg"
+        "map-view": "../../components/map-view/map-view"
     },
     "backgroundColor": "#000000"
 }

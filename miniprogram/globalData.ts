@@ -1,5 +1,5 @@
 
 export default {
     version: '',
-    userInfo: {} as IUserInfo,
+    userInfo: undefined as (WechatMiniprogram.UserInfo | undefined),
 }

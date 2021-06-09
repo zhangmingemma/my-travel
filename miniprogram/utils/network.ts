@@ -1,31 +1,23 @@
-import { safeGet } from "./fnUtil"
-
-let holdOn = null as (Promise<ICloud.CallFunctionResult> | null)
+import { promiseWrap } from "./fnUtil"
 let __hasInit = false
 
-export const login = async():Promise<ICloud.CallFunctionResult> => {
-    if (!__hasInit) {
-        wx.cloud.init()
-        __hasInit = true
-    }
-    const res = await wx.cloud.callFunction({
-        name: 'login',
-    })
-    console.info('[cloud function]login', res)
-    return res
-}
-
-export const cloudRequest = async <U, T>(option:IOptions<T>):Promise<U> => {
-    holdOn = holdOn || login()
-    await holdOn
-    
+export const doRequest = async <U, T>(option:IBaseReq<T>):Promise<IBaseRes<U>> => {
     const res:any = await wx.cloud.callFunction({
         name: option.name,
         data: option?.data || {}
     })
-    if (safeGet(['result','errCode'])(res) != 0) {
-        throw new Error(`[cloud function]${option.name}, ${JSON.stringify(option.data)}`)
-    }
-    console.info('[cloud function]', option, res)
-    return res.result || {}
+    return res
 }
+
+export const cloudRequest = async<U, T>(option: IBaseReq<T>):Promise<{error:null|any, res:null|undefined|U}> => {
+    if (!__hasInit) {
+        wx.cloud.init()
+        __hasInit = true
+    }
+    
+    console.info('[cloud function]req', option)
+    const {error, res} = await promiseWrap(doRequest<U, T>(option))
+    const data = res?.result
+    console.info('[cloud function]res', data)
+    return {error, res:data}
+} 

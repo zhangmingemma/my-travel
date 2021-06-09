@@ -9,7 +9,7 @@ module.exports = {
         this.setupOptions = options
 
         try {
-            const systemInfo:WechatMiniprogram.GetSystemInfoSyncResult = wx.getSystemInfoSync()
+            const systemInfo:WechatMiniprogram.SystemInfo = wx.getSystemInfoSync()
             if (systemInfo.platform === 'windows' || systemInfo.platform === 'mac') {
                 systemInfo.screenWidth = systemInfo.windowWidth
                 systemInfo.screenHeight = systemInfo.windowHeight
