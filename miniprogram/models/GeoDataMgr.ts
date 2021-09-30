@@ -1,8 +1,7 @@
 import { showModal } from "../utils/alert"
 import { StorageKey } from "../utils/define"
 import { cloudRequest } from "../utils/network"
-const PAGESIZE = 50
-
+const PAGESIZE = 40
 class GeoDataMgr {
     geoCityCount = 0
     geoCityList = [] as IGeoCell[]
@@ -26,18 +25,18 @@ class GeoDataMgr {
 
     // 获取地图全部城市
     async getGeoCitys():Promise<null | IGeoCell[]> {
-        // 取缓存
-        const storageData = wx.getStorageSync(StorageKey.GeoCitysStorage)
-        console.info('[GeoDataMgr] getStorageSync', StorageKey.GeoCitysStorage, storageData)
-        if (storageData) {
-            this.geoCityList = storageData
-            return this.geoCityList
-        }
-
         // 取总数后，分片并发获取全部地图数据
         if (!this.geoCityCount) {
             await this.getGeoCityCount()
         }
+        // 取缓存: 缓存不够会截断数据，因此需要判断是否缓存了全部地图数据
+        const storageData = wx.getStorageSync(StorageKey.GeoCitysStorage)
+        console.info('[GeoDataMgr] getStorageSync', StorageKey.GeoCitysStorage, storageData)
+        if (storageData && storageData.length == this.geoCityCount) {
+            this.geoCityList = storageData
+            return this.geoCityList
+        }
+
         let taskCount = Math.ceil(this.geoCityCount/PAGESIZE)
         let promises = []
         for(let i=0; i<taskCount; i++) {
@@ -63,10 +62,6 @@ class GeoDataMgr {
                     const oldIds = this.geoCityList.map((item:IGeoCell) => item._id)
                     const newList = data.filter((item:IGeoCell) => oldIds.indexOf(item._id) < 0)
                     this.geoCityList = this.geoCityList.concat(newList)
-                    wx.setStorage({
-                        key: StorageKey.GeoCitysStorage,
-                        data: this.geoCityList
-                    })
                     console.info('[GeoDataMgr] getGeoCitys CitysCount', this.geoCityList.length)
                 }
             })
@@ -79,7 +74,7 @@ class GeoDataMgr {
 
     // 获取地图全部省份
     async getGeoProvinces() {
-
+        
     }
 
     // 经纬度查询城市

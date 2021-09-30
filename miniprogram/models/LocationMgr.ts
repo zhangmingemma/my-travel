@@ -1,3 +1,4 @@
+import { promiseWrap } from '../utils/fnUtil'
 import { getAuthorize, doAuthorize } from './OpenDataMgr'
 
 class LocationMgr {
@@ -19,11 +20,11 @@ class LocationMgr {
     }
 
     async doLocation():Promise<number[]> {
-        const location = await wx.getLocation({
+        const {res: location} = await promiseWrap(wx.getLocation({
             type: 'gcj02'
-        })
+        }))
         console.info('[LocationMgr] doLocation', location)
-        return [location.longitude, location.latitude]
+        return [location?.longitude || 0, location?.latitude || 0]
     }
 }
 

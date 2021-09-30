@@ -1,0 +1,10 @@
+<view class="wrap">
+    <scroll-view class="wrap_province" scroll-x="false" scroll-y="true">
+        
+    </scroll-view>
+</view>
+
+<view class="bottom">
+    <view class="bottom_btn">提交</view>   
+</view>
+

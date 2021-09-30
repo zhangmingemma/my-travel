@@ -1,8 +1,6 @@
 import { genOption } from './genOption'
 import { hideLoading, showLoading } from '../../utils/alert'
 import GeoDataMgr from '../../models/GeoDataMgr'
-import LocationMgr from '../../models/LocationMgr'
-import { cloudRequest } from '../../utils/network'
 const echarts = require('./ec-canvas/echarts')
 
 Component({
@@ -15,39 +13,7 @@ Component({
         geoCellCount: 0
     },
     async attached() {
-        // const res = await cloudRequest<{data: IGeoCell[]}, IGetGeoDataReq|any>({
-        //     name: 'geodata',
-        //     data: {
-        //         action: 'update',
-        //         params: {
-        //             adcode: "710000",
-        //             data: {
-        //                 "properties.parent": {
-        //                     "adcode": 100000
-        //                 },
-        //                 "properties.center": [121.509062,25.044332]
-        //             }
-        //         }
-        //     }
-        // })
-        const res:any = await cloudRequest<{data: IGeoCell[]}, IGetGeoDataReq|any>({
-            name: 'geodata',
-            data: {
-                action: 'get',
-                params: {
-                    adcode: 510100
-                }
-            }
-        })
-        this.data.mapData = JSON.stringify({
-            type: "FeatureCollection",
-            name: "100000_full",
-            features: res.res.data
-        })
-        console.error(res)
-        this.initChart()
-        // this.initMapData()
-        // this.getLocation()
+        this.initMapData()
     },
     methods: {
         async initMapData() {
@@ -88,10 +54,6 @@ Component({
                 return chart
             }
             return init
-        },
-        // 获取用户地理位置
-        getLocation() {
-            LocationMgr.getLocation()
         }
     },
 });

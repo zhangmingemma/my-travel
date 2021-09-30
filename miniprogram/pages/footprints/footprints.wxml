@@ -11,6 +11,10 @@
     <view class="map">
         <map-view></map-view>
     </view>
+
+    <view class="opt">
+        <view class="opt-btn" bindtap="onAdd">添加足迹</view>
+    </view>
 </block>
     
   

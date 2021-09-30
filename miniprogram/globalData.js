@@ -1,7 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
-    version: '',
-    userInfo: undefined,
-};
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2xvYmFsRGF0YS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImdsb2JhbERhdGEudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxrQkFBZTtJQUNYLE9BQU8sRUFBRSxFQUFFO0lBQ1gsUUFBUSxFQUFFLFNBQXFEO0NBQ2xFLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJcbmV4cG9ydCBkZWZhdWx0IHtcbiAgICB2ZXJzaW9uOiAnJyxcbiAgICB1c2VySW5mbzogdW5kZWZpbmVkIGFzIChXZWNoYXRNaW5pcHJvZ3JhbS5Vc2VySW5mbyB8IHVuZGVmaW5lZCksXG59Il19

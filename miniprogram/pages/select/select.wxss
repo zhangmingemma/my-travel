@@ -1,0 +1,1 @@
+.bottom{position:fixed;bottom:0;left:0;width:100vw;display:flex;justify-content:center;background:#141C34;padding-bottom:constant(safe-area-inset-bottom);padding-bottom:env(safe-area-inset-bottom)}.bottom_btn{margin-top:16px;margin-bottom:16px;display:flex;justify-content:center;width:108px;background:#461CE5;padding:8px 32px;border-radius:4px}

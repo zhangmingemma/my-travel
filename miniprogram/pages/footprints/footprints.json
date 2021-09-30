@@ -2,5 +2,6 @@
     "usingComponents": {
         "map-view": "../../components/map-view/map-view"
     },
-    "backgroundColor": "#000000"
+    "backgroundColor": "#000000",
+    "navigationBarTitleText": "足迹"
 }
