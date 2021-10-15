@@ -1,3 +1,19 @@
+const cloud = require('wx-server-sdk')
+const fs = require('fs')
+cloud.init()
+
+exports.main = async ( event) => {
+  switch (event.action) {
+      // 读取json，录入轮廓数据  
+      case 'addRecord': return addRecord(event)
+      // 删除轮廓数据
+      case 'delRecord': return delRecord(event)
+      // 更新轮廓数据
+      case 'updateRecord': return updateRecord(event)
+      default: return 
+  }
+}
+
 // 插入记录
 async function addRecord(event) {
     const collection = cloud.database().collection('geomap')
@@ -16,7 +32,13 @@ async function addRecord(event) {
     const Res = await Promise.all(dataCollection.map(async (geodata) => {
         const _geodata = JSON.parse(geodata)
         recordCount += _geodata.features.length
-        const res = await Promise.all(_geodata.features.map(async feature => {
+        const res = await Promise.all(_geodata.features
+          .filter(
+            feature => 
+              ['110000', '120000', '310000', '500000', '710000', '810000', '820000', '100000']
+              .indexOf(feature.properties.adcode) < 0
+          )
+          .map(async feature => {
             const a = await collection.add({
                 data: {
                     type: feature.type,

@@ -1,6 +1,7 @@
 import { genOption } from './genOption'
 import { hideLoading, showLoading } from '../../utils/alert'
 import GeoDataMgr from '../../models/GeoDataMgr'
+import { MapEnum } from '../../utils/define';
 const echarts = require('./ec-canvas/echarts')
 
 Component({
@@ -20,11 +21,10 @@ Component({
             showLoading()
             this.data.geoCityList = await GeoDataMgr.getGeoCitys()
             if (this.data.geoCityList) {
-                this.data.mapData = JSON.stringify({
+                this.data.mapData = {
                     type: "FeatureCollection",
-                    name: "100000_full",
                     features: this.data.geoCityList
-                })
+                }
                 this.initChart()
                 hideLoading()
             }
@@ -47,9 +47,12 @@ Component({
                     devicePixelRatio: dpr,
                     renderer: 'canvas'
                 });
-                const option = genOption()
+                const option = genOption([
+                  { name: '广州市', value: 1 },
+                  { name: '阿拉善盟', value: 1}
+                ])
                 canvas.setChart(chart)
-                echarts.registerMap('china', this.data.mapData)
+                echarts.registerMap(MapEnum.MapType.CHINA, this.data.mapData)
                 chart.setOption(option)
                 return chart
             }

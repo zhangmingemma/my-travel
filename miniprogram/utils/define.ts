@@ -5,3 +5,9 @@ export const ENV = {
 export const StorageKey = {
     GeoCitysStorage: 'geo_citys_storage_for_map'
 }
+
+export const MapEnum = {
+    MapType: {
+        CHINA: 'china'
+    }
+}
