@@ -35,14 +35,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+var FootprintsMgr_1 = require("../../models/FootprintsMgr");
 Page({
-    data: {},
+    data: {
+        cityList: []
+    },
     onLoad: function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2];
+                switch (_a.label) {
+                    case 0: return [4, FootprintsMgr_1.default.getAllCitys()];
+                    case 1:
+                        _a.sent();
+                        return [2];
+                }
             });
         });
     },
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VsZWN0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic2VsZWN0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFDQSxJQUFJLENBQUM7SUFFRCxJQUFJLEVBQUUsRUFFTDtJQUVLLE1BQU07Ozs7OztLQUVYO0NBQ0osQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiXG5QYWdlKHtcbiAgICBcbiAgICBkYXRhOiB7XG4gICAgICAgIFxuICAgIH0sXG5cbiAgICBhc3luYyBvbkxvYWQoKSB7XG4gICAgICAgIFxuICAgIH0sXG59KTtcbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VsZWN0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic2VsZWN0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsNERBQXVEO0FBRXZELElBQUksQ0FBQztJQUVELElBQUksRUFBRTtRQUNGLFFBQVEsRUFBRSxFQUE4QjtLQUMzQztJQUVLLE1BQU07Ozs7NEJBQ1IsV0FBTSx1QkFBYSxDQUFDLFdBQVcsRUFBRSxFQUFBOzt3QkFBakMsU0FBaUMsQ0FBQTs7Ozs7S0FDcEM7Q0FDSixDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgRm9vdHByaW50c01nciBmcm9tIFwiLi4vLi4vbW9kZWxzL0Zvb3RwcmludHNNZ3JcIjtcblxuUGFnZSh7XG4gICAgXG4gICAgZGF0YToge1xuICAgICAgICBjaXR5TGlzdDogW10gYXMgSUdlb0NlbGxbJ3Byb3BlcnRpZXMnXVtdXG4gICAgfSxcblxuICAgIGFzeW5jIG9uTG9hZCgpIHtcbiAgICAgICAgYXdhaXQgRm9vdHByaW50c01nci5nZXRBbGxDaXR5cygpXG4gICAgfSxcbn0pO1xuIl19

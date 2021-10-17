@@ -1,0 +1,17 @@
+<scroll-view
+    scroll-y
+    class="container"
+>
+    <view class="wrap">
+        <view class="map">
+            <map-view mapType="{{mapType}}" mapData="{{mapData}}" mapOption="{{mapOption}}"/>
+        </view>
+
+        <view class="opt">
+            <view class="opt-btn" bindtap="onAdd">添加足迹</view>
+        </view>
+    </view>
+</scroll-view>
+    
+    
+  

@@ -1,0 +1,31 @@
+@import '../../../../style/fn.less';
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.map {
+    width: 100vw;
+    height: calc(100vw + 40px);
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.opt {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    &-btn {
+        .commonBtn();
+    }
+}

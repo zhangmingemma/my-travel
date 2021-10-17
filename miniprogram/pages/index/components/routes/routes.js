@@ -1,0 +1,5 @@
+"use strict";
+Component({
+    data: {}
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicm91dGVzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsicm91dGVzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQSxTQUFTLENBQUM7SUFDTixJQUFJLEVBQUUsRUFFTDtDQUNKLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIlxuQ29tcG9uZW50KHtcbiAgICBkYXRhOiB7XG4gICAgICAgIFxuICAgIH1cbn0pO1xuIl19

@@ -10,8 +10,38 @@ exports.main = async ( event) => {
       case 'delRecord': return delRecord(event)
       // 更新轮廓数据
       case 'updateRecord': return updateRecord(event)
+      // 添加properties
+      case 'addProperties': return addProperties()
       default: return 
   }
+}
+
+// 插入轮廓数据的属性
+async function addProperties() {
+    const collection = cloud.database().collection('geomap')
+    const { total } = await collection.count()
+    const MAX_LIMIT = 40
+    const batchTimes = Math.ceil(total / MAX_LIMIT)
+    const tasks = []
+    for (let i=0; i < batchTimes; i++) {
+        const promise = collection.skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
+        tasks.push(promise)
+    }
+    const { data } = ( await Promise.all(tasks)).reduce((acc,cur) => {
+        return {
+            data: acc.data.concat(cur.data)
+        }
+    })
+    const res = await Promise.all(data.map(async(item) => {
+        const collectPros = cloud.database().collection('geomap_properties')
+        return await collectPros.add({
+            data: item.properties
+        })
+    }))
+
+    return {
+        res
+    }
 }
 
 // 插入记录

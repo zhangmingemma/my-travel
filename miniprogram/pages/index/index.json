@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "footprints": "./components/footprints/footprints",
+        "routes": "./components/routes/routes",
+        "my": "./components/my/my",
+        "tab": "./components/tab/tab"
+    },
+    "backgroundColor": "#000000",
+    "disableScroll": true
+}

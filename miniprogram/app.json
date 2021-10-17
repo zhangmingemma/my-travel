@@ -1,8 +1,6 @@
 {
     "pages": [
-        "pages/footprints/footprints",
-        "pages/routes/routes",
-        "pages/my/my",
+        "pages/index/index",
         "pages/select/select"
     ],
     "window": {
@@ -12,32 +10,6 @@
         "backgroundColor": "#000000",
         "backgroundColorTop": "#000000",
         "backgroundColorBottom": "#000000"
-    },
-    "tabBar": {
-        "color": "#7A7E83",
-        "selectedColor": "#4D6DF7",
-        "borderStyle": "white",
-        "backgroundColor": "#000000",
-        "list": [
-            {
-                "pagePath": "pages/footprints/footprints",
-                "iconPath": "assets/footprints.png",
-                "selectedIconPath": "assets/footprints_active.png",
-                "text": "足迹"
-            },
-            {
-                "pagePath": "pages/routes/routes",
-                "iconPath": "assets/routes.png",
-                "selectedIconPath": "assets/routes_active.png",
-                "text": "路线"
-            },
-            {
-                "pagePath": "pages/my/my",
-                "iconPath": "assets/my.png",
-                "selectedIconPath": "assets/my_active.png",
-                "text": "我的"
-            }
-        ]
     },
     "sitemapLocation": "sitemap.json",
     "style": "v2"

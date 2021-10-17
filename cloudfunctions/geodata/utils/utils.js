@@ -1,8 +1,4 @@
-export const checkQuery = () => {
-
-}
-
-export const promiseWrap = async(promise) => {
+const promiseWrap = async(promise) => {
   try {
       const res = await promise
       return {error: null, res: res}
@@ -10,4 +6,8 @@ export const promiseWrap = async(promise) => {
       console.error(e)
       return {error: e, res: null}
   }
+}
+
+exports.Utils = {
+  promiseWrap
 }

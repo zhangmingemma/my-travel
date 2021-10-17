@@ -1,0 +1,1 @@
+<component wx:if="{{bInit}}" id="comp" />

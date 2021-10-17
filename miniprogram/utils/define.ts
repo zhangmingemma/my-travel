@@ -11,3 +11,7 @@ export const MapEnum = {
         CHINA: 'china'
     }
 }
+
+export const StyleConfig = {
+    TabBarHeight: 56
+}

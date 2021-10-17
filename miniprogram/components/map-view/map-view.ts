@@ -1,34 +1,30 @@
-import { genOption } from './genOption'
-import { hideLoading, showLoading } from '../../utils/alert'
-import GeoDataMgr from '../../models/GeoDataMgr'
-import { MapEnum } from '../../utils/define';
 const echarts = require('./ec-canvas/echarts')
 
 Component({
+    properties: {
+        mapType: {
+            type: String,
+            default: ''
+        }, 
+        mapOption: {
+            type: Object,
+            default: {}
+        },
+        mapData: {
+            type: Object,
+            default: null,
+            observer() {
+                if (this.data.mapData && this.data.mapData.features) {
+                    this.initChart()
+                }
+            }
+        }
+    },
     data: {
         ec: {},
-        option: {}, 
-        mapData: {},
-        geoCityList: [] as (null | IGeoCell[]),
-        chartReady: false,
-        geoCellCount: 0
-    },
-    async attached() {
-        this.initMapData()
+        chartReady: false
     },
     methods: {
-        async initMapData() {
-            showLoading()
-            this.data.geoCityList = await GeoDataMgr.getGeoCitys()
-            if (this.data.geoCityList) {
-                this.data.mapData = {
-                    type: "FeatureCollection",
-                    features: this.data.geoCityList
-                }
-                this.initChart()
-                hideLoading()
-            }
-        },
         // 初始化地图
         initChart() {
             this.setData({
@@ -47,13 +43,9 @@ Component({
                     devicePixelRatio: dpr,
                     renderer: 'canvas'
                 });
-                const option = genOption([
-                  { name: '广州市', value: 1 },
-                  { name: '阿拉善盟', value: 1}
-                ])
                 canvas.setChart(chart)
-                echarts.registerMap(MapEnum.MapType.CHINA, this.data.mapData)
-                chart.setOption(option)
+                echarts.registerMap(this.data.mapType, this.data.mapData)
+                chart.setOption(this.data.mapOption)
                 return chart
             }
             return init
