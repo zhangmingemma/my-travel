@@ -1,24 +1,24 @@
 <view class="container"> 
-    <view class="wrap-tab-page {{selected === 0 ? 'show' : ''}}">
+    <view class="wrap_tab_page {{selected === 0 ? 'show' : ''}}">
         <tab id="tab0" show="{{selected === 0}}" generic:component="footprints" />
     </view>
-    <view class="wrap-tab-page {{selected === 1 ? 'show' : ''}}">
+    <view class="wrap_tab_page {{selected === 1 ? 'show' : ''}}">
         <tab id="tab1" show="{{selected === 1}}" generic:component="routes" />
     </view>
-    <view class="wrap-tab-page {{selected === 2 ? 'show' : ''}}">
+    <view class="wrap_tab_page {{selected === 2 ? 'show' : ''}}">
         <tab id="tab2" show="{{selected === 2}}" generic:component="my" />
     </view>
 </view>
 
-<view class="tab-bar">
+<view class="tab_bar">
     <view 
         wx:for="{{tabs}}" 
         wx:key="index" 
-        class="tab-bar-item" 
+        class="tab_bar_item" 
         data-index="{{index}}" 
         bindtap="switchTab"
     >
-        <image class="tab-bar-image" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
-        <view class="tab-bar-text {{selected === index ? 'selected' : ''}}">{{item.text}}</view>
+        <image class="tab_bar_image" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+        <view class="tab_bar_text {{selected === index ? 'selected' : ''}}">{{item.text}}</view>
     </view>
 </view>

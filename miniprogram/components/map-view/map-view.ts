@@ -14,7 +14,9 @@ Component({
             type: Object,
             default: null,
             observer() {
-                if (this.data.mapData && this.data.mapData.features) {
+                if (this.data.chartReady) {
+                    this.updateChart()
+                } else if (this.data.mapData && this.data.mapData.features) {
                     this.initChart()
                 }
             }
@@ -22,7 +24,8 @@ Component({
     },
     data: {
         ec: {},
-        chartReady: false
+        chartReady: false,
+        chart: null as any
     },
     methods: {
         // 初始化地图
@@ -43,12 +46,19 @@ Component({
                     devicePixelRatio: dpr,
                     renderer: 'canvas'
                 });
-                canvas.setChart(chart)
+                canvas.setChart(this.data.chart)
                 echarts.registerMap(this.data.mapType, this.data.mapData)
                 chart.setOption(this.data.mapOption)
+                this.data.chart = chart
                 return chart
             }
             return init
+        },
+        updateChart() {
+            if (this.data.chart) {
+                echarts.registerMap(this.data.mapType, this.data.mapData)
+                this.data.chart.setOption(this.data.mapOption)
+            }
         }
     },
 });

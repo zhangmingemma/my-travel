@@ -1,41 +1,71 @@
 [
     {
-        "name": "get Record to geomap",
+        "name": "getBaseMap",
         "value": {
-            "action": "get",
-            "params": {
-                "count": 100,
-                "offset": 0
+            "action": "getBaseMap"
+        }
+    },
+    {
+        "name": "addUserFootPrints",
+        "value": {
+            "action":"addUserFootPrints",
+            "userInfo": {
+                "openId": "o0BnQ4vrcQBnsqW9ug6hRmVkX1NU"
+            },
+            "params":{
+                "citys":[{
+                    "name":"香港特别行政区",
+                    "adcode":810000,
+                    "parentAdcode":100000,
+                    "isCity":true
+                },{
+                    "name":"重庆市",
+                    "adcode":500000,
+                    "parentAdcode":100000,
+                    "isCity":true
+                },{
+                    "name":"葫芦岛市",
+                    "adcode":211400,
+                    "parentAdcode":210000,
+                    "isCity":false
+                },{
+                    "name":"大连市",
+                    "adcode":210200,
+                    "parentAdcode":210000,
+                    "isCity":false
+                },{
+                    "name":"三亚市",
+                    "adcode":460200,
+                    "parentAdcode":460000,
+                    "isCity":false
+                }]
             }
         }
     }, 
     {
-        "name": "del Record to geomap",
+        "name": "getUserMap",
         "value": {
-            "action": "del",
-            "params": {
-                "adcode": "xxxxxx"
+            "action": "getUserMap",
+            "userInfo": {
+                "openId": "o0BnQ4vrcQBnsqW9ug6hRmVkX1NU"
             }
         }
     },
     {
-        "name": "update Record to geomap",
+        "name": "getAllCitysProperties",
         "value": {
-            "action": "update",
-            "params": {
-                "adcode": "810000",
-                "data": {
-                    "name": "香港"
-                }
+            "action": "getAllCitysProperties",
+            "userInfo": {
+                "openId": "o0BnQ4vrcQBnsqW9ug6hRmVkX1NU"
             }
         }
     },
     {
-        "name": "addgeo to geomap",
+        "name": "getFootprintOutline",
         "value": {
-            "action": "addGeo",
-            "params": {
-                "adcode": "130000"
+            "action": "getFootprintOutline",
+            "userInfo": {
+                "openId": "o0BnQ4vrcQBnsqW9ug6hRmVkX1NU"
             }
         }
     }

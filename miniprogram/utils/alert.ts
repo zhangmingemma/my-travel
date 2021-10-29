@@ -1,8 +1,8 @@
-export const showModal = (opts: WechatMiniprogram.ShowModalOption={content: '数据加载错误，请稍后再试', showCancel: false}) => {
+export const showModal = (opts: WechatMiniprogram.ShowModalOption={content: '一定是哪里不太对，等会儿再试试~', showCancel: false}) => {
     wx.showModal(opts)
 }
 
-export const showLoading = (opts: WechatMiniprogram.ShowLoadingOption = { title: '加载中'}) => {
+export const showLoading = (opts: WechatMiniprogram.ShowLoadingOption = { title: '拼命加载中...'}) => {
     wx.showLoading(opts)
 }
 
@@ -10,7 +10,7 @@ export const hideLoading = () => {
     wx.hideLoading()
 }
 
-export const showSuccessTip = (tip: string = '操作成功') => {
+export const showSuccessTip = (tip: string = '成功啦~') => {
     hideLoading()
     setTimeout(() => {
         wx.showToast({

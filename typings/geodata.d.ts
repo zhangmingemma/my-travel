@@ -1,11 +1,3 @@
-declare interface IGetGeoDataReq {
-    count?: number,
-    offset?: number,
-    adcode?: number,
-    parentAdcode?: number,
-    level?: string
-}
-
 // single geodata record
 declare interface IGeoCell {
     _id: string,
@@ -23,7 +15,31 @@ declare interface IGeoCell {
         level: string,
         isCity?: boolean,
         name: string,
-        parent: { adcode: number},
+        parentAdcode: number,
+        alias: string,
         subFeatureIndex: number
     }
+}
+
+// getAllCitys resp
+declare interface IProvinceCell {
+    name: string,
+    adcode: number,
+    chooseCityCount?: number,
+    list: {
+        name: string,
+        alias: string,
+        adcode: number,
+        parentAdcode: number,
+        isCity: boolean,
+        isChoose?: boolean
+    }[]
+}
+
+// Footprint data
+declare interface IFootPrintCell {
+    adcode: number,
+    name: string,
+    isCity: boolean,
+    parentAdcode: number
 }

@@ -1,10 +1,37 @@
-<view class="wrap">
+<view class="wrap" wx:if="{{dataReady}}">
     <scroll-view class="wrap_province" scroll-x="false" scroll-y="true">
-        
+        <view 
+            class="wrap_province_item {{index == curProvinceIdx ? 'highlight':''}}" 
+            wx:for="{{list}}" 
+            wx:key="index"
+            data-index="{{index}}"
+            data-item="{{item}}"
+            catch:tap="switchProvince"
+        >
+            <view>{{item.name}}</view>
+            <view class="mark" wx:if="{{item.chooseCityCount > 0}}">{{item.chooseCityCount}}</view>
+        </view>
     </scroll-view>
+    <view class="wrap_city">
+        <view class="wrap_city_list">
+            <view class="wrap_city_list-inner">
+                <view 
+                    class="wrap_city_list-inner-item {{item.isChoose ? 'highlight': ''}}" 
+                    wx:for="{{list[curProvinceIdx].list}}" 
+                    wx:key="index"
+                    data-index="{{index}}"
+                    data-item="{{item}}"
+                    catch:tap="chooseCity"
+                >
+                    <view>{{item.alias}}</view>
+                    <view class="choose" wx:if="{{item.isChoose}}">
+                        <image src="/assets/mark.png" class="choose_icon"/>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="wrap_city_submit">
+            <view class="wrap_city_submit-btn" catch:tap="onSubmit">提交</view>   
+        </view>
+    </view>
 </view>
-
-<view class="bottom">
-    <view class="bottom_btn">提交</view>   
-</view>
-

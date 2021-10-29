@@ -1,3 +1,4 @@
+import { hideLoading } from "../../utils/alert";
 const { screenHeight, statusBarHeight } = wx.getSystemInfoSync()
 
 Page({
@@ -34,6 +35,7 @@ Page({
     },
     switchTab({ currentTarget: { dataset: { index } } }: { currentTarget: { dataset: { index: number } } }) {
         if (this.data.selected !== index) {
+            hideLoading()
             this.setData({
                 selected: index,
             })

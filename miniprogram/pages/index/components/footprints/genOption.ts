@@ -6,12 +6,12 @@ export const genOption = (mapType:string, data = [] as {
         visualMap: {
             show: false,
             min: 1,
-            max: 2,
+            max: 10,
             text: ['High', 'Low'],
             realtime: false,
             calculable: true,
             inRange: {
-                color: ['#461CE5']
+                color: ['orange']
             }
         },
         geo: {
@@ -21,8 +21,9 @@ export const genOption = (mapType:string, data = [] as {
             top: 0,
             map: mapType,
             itemStyle: {
-                borderColor: '#461CE5',
-                borderWidth: 2.5
+                borderColor: 'orange',
+                borderWidth: 3,
+                areaColor: 'rgb(20,28,52)'
             }
         },
         series: [{
@@ -38,13 +39,14 @@ export const genOption = (mapType:string, data = [] as {
                         show: false,
                     },
                     borderColor: 'rgba(113,138,174, 0.3)',
-                    areaColor: 'rgb(20,28,52)'
+                    areaColor: 'rgb(40,35,80)'
                 },
                 emphasis: {
                     label: {
                         show: false
                     },
-                    areaColor: 'rgb(20,28,52)'
+                    // areaColor: 'rgb(20,28,52)'
+                    areaColor: 'rgb(40,35,80)'
                 }
             },
             animation: true,

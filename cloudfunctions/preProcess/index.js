@@ -12,6 +12,7 @@ exports.main = async ( event) => {
       case 'updateRecord': return updateRecord(event)
       // 添加properties
       case 'addProperties': return addProperties()
+      case 'test': return test()
       default: return 
   }
 }
@@ -34,8 +35,12 @@ async function addProperties() {
     })
     const res = await Promise.all(data.map(async(item) => {
         const collectPros = cloud.database().collection('geomap_properties')
+        const properties = item.properties
+        properties.parentAdcode = parseInt(item.properties.parent.adcode)
+        properties.adcode = parseInt(item.properties.adcode)
+        delete properties.parent
         return await collectPros.add({
-            data: item.properties
+            data: properties
         })
     }))
 
@@ -126,6 +131,54 @@ async function updateRecord(event) {
 
     return {
         event,
+        res
+    }
+}
+
+const handleName = (name) => {
+    if (!name || typeof name != 'string') return ''
+    const  NameStopWord = [
+        '省','壮族自治区','维吾尔自治区','回族自治区','自治区','市','特别行政区', 
+        '土家族苗族自治州', '林区', '傣族自治州', '傈僳族自治州', '彝族自治州', '藏族自治州', '哈尼族彝族自治州',
+        '傣族景颇族自治州', '壮族苗族自治州', '白族自治州', '蒙古自治州', '哈萨克自治州', '回族自治州', '柯尔克孜自治州',
+        '地区', '藏族自治州', '蒙古族藏族自治州', '朝鲜族自治州', '黎族自治县', '黎族苗族自治县', '布依族苗族自治州',
+        '彝族自治州', '藏族羌族自治州', '苗族侗族自治州', '哈尼族', '蒙古族'
+    ]
+    NameStopWord.map(item => {
+        name = name.replace(item, '')
+    })
+    return name
+}
+
+async function test() {
+    const collection = cloud.database().collection('geomap')
+    const { total } = await collection.count()
+    const MAX_LIMIT = 40
+    const batchTimes = Math.ceil(total / MAX_LIMIT)
+    const tasks = []
+    for (let i=0; i < batchTimes; i++) {
+        const promise = collection.skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
+        tasks.push(promise)
+    }
+    const { data } = ( await Promise.all(tasks)).reduce((acc,cur) => {
+        return {
+            data: acc.data.concat(cur.data)
+        }
+    })
+    const res = await Promise.all(data.map(async(item) => {
+        console.error(item.properties.name)
+        await collection.where({
+            'properties.adcode': item.properties.adcode,
+            'properties.level': item.properties.level,
+            'properties.parentAdcode': item.properties.parentAdcode
+        }).update({
+            data: {
+                ['properties.alias']: handleName(item.properties.name)
+            }
+        })  
+    }))
+
+    return {
         res
     }
 }

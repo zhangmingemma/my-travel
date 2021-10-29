@@ -2,13 +2,29 @@
     scroll-y
     class="container"
 >
-    <view class="wrap">
+    <image class="bg" src="/assets/test/1.png"></image>
+    <view class="wrap" wx:if="{{chartReady}}">
+        <view class="user">
+            <view class="user_avatar">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view class="user_nickname">
+                <open-data type="userNickName"></open-data>
+            </view>
+        </view>
+
+        <view class="desc {{footprints.length ? 'show':''}}">
+            <view class="desc_line">点亮中国<view class="highlight">{{footprints.length}}</view>个城市</view>
+            <view class="desc_line">占全国的<view class="highlight">{{cityCountPercent}}</view>%</view>
+        </view>
+
         <view class="map">
             <map-view mapType="{{mapType}}" mapData="{{mapData}}" mapOption="{{mapOption}}"/>
         </view>
 
         <view class="opt">
-            <view class="opt-btn" bindtap="onAdd">添加足迹</view>
+            <view class="opt_btn" bindtap="onAdd">点亮足迹</view>
+            <view class="opt_btn" bindtap="onAdd">分享海报</view>
         </view>
     </view>
 </scroll-view>
